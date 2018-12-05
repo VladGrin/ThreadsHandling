@@ -7,7 +7,9 @@
 Новый клиент, обнаружив дремлющего парикмахера, будит его, и тот стрижет клиента; в противном случае пришедший
 клиент должен будет подождать. Воспользуйтесь многопоточностью, чтобы скоординировать действия парикмахера и клиентов.
 */
-package com.threads.haircutter;
+
+// Управлением поведения парикмахера во время отсутствия клиентов (сонб пробудка) занимается класс WatingRoom
+package com.threads.haircutterv1_1;
 
 import java.util.Scanner;
 
@@ -20,8 +22,8 @@ public class Main {
 
         WaitingRoom waitingRoom = new WaitingRoom(n);
 
-        new PersonProvider(waitingRoom, 20);
-        new Haircutter(waitingRoom, 20);
+        new Thread(new PersonProvider(waitingRoom, 20)).start();
+        new Thread(new Haircutter(waitingRoom, 20)).start();
     }
 }
 

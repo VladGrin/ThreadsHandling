@@ -61,7 +61,7 @@ public class Manager {
             resultPrinter.printResultFromFile(recordFileName);
 
             do {
-                System.out.println("\nIf you want to enter press 1");
+                System.out.println("\nIf you want to enter press 1 otherwize any number.");
                 choiceNumber = scanner.nextLine();
             } while (!DataInputValidator.inputNumberValidator(choiceNumber));
             if (Integer.parseInt(choiceNumber) == 1) {

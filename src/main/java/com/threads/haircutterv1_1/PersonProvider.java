@@ -1,15 +1,12 @@
-package com.threads.haircutter;
+package com.threads.haircutterv1_1;
 
 public class PersonProvider implements Runnable {
     private WaitingRoom waitingRoom;
     private int personsNumber;
-    private Thread thread;
 
     public PersonProvider(WaitingRoom waitingRoom, int personsNumber) {
         this.waitingRoom = waitingRoom;
         this.personsNumber = personsNumber;
-        thread = new Thread(this);
-        thread.start();
     }
 
     public void run() {
