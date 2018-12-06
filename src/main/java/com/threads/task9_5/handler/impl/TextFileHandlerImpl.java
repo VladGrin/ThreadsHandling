@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,10 +25,11 @@ public class TextFileHandlerImpl implements TextFileHandler {
         int count = 0;
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(path)))) {
             while (bufferedReader.ready()) {
-                String line = bufferedReader.readLine();
-                Matcher matcher = Pattern.compile(character + "[a-zA-Z-]+").matcher(line);
+                Matcher matcher = Pattern.compile("[a-zA-Z]+").matcher(bufferedReader.readLine());
                 while (matcher.find()) {
-                    count++;
+                    if(matcher.group().toUpperCase().charAt(0) == character){
+                        count++;
+                    }
                 }
             }
         } catch (IOException e) {
