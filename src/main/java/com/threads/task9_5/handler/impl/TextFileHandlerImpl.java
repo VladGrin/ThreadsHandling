@@ -27,7 +27,7 @@ public class TextFileHandlerImpl implements TextFileHandler {
             while (bufferedReader.ready()) {
                 Matcher matcher = Pattern.compile("[a-zA-Z]+").matcher(bufferedReader.readLine());
                 while (matcher.find()) {
-                    if(matcher.group().toUpperCase().charAt(0) == character){
+                    if(matcher.group().charAt(0) == character){
                         count++;
                     }
                 }
